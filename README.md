@@ -258,7 +258,7 @@ Background Workers
 GitHub API / Gemini API / LinkedIn API
      ↓
 MongoDB
-
+```
 
 
 
