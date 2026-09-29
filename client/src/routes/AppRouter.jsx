@@ -8,7 +8,7 @@ function AppRouter() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<div>Repo2Post</div>} />
+        <Route path="/" element={<div className="flex min-h-screen items-center justify-center bg-gray-950 text-4xl font-bold tracking-tight text-indigo-400">Repo2Post</div>} />
         <Route path="/login" element={<Login/>}/>
         <Route path="/register" element={<Register/>}/>
         <Route element={<ProtectedRuoter/>}>
