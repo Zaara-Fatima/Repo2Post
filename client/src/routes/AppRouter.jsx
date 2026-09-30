@@ -3,12 +3,13 @@ import { Login } from "../pages/Login";
 import { Register } from "../pages/Register";
 import { ProtectedRuoter } from "./ProtectedRuoter";
 import { Dashboard } from "../pages/Dashboard";
+import { Home } from "../pages/Home";
 
 function AppRouter() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<div className="flex min-h-screen items-center justify-center bg-gray-950 text-4xl font-bold tracking-tight text-indigo-400">Repo2Post</div>} />
+        <Route path="/" element={<Home/>} />
         <Route path="/login" element={<Login/>}/>
         <Route path="/register" element={<Register/>}/>
         <Route element={<ProtectedRuoter/>}>
