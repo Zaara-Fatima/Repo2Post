@@ -241,7 +241,7 @@ npm test
 
 <p align="center">
   <img src="./client/src/assets/Screenshot2.png" width="45%">
-  <img src="./client/src/assets/Screenshot 3.png" width="45%">
+  <img src="./client/src/assets/Screenshot3.png" width="45%">
 </p>
 
 
