@@ -231,11 +231,18 @@ npm test
 
 ### Repository Analysis
 
-_Add a screenshot showing the GitHub repository analysis result here._
+<p align="center">
+  <img src="./client/src/assets/Screenshot1.png" width="45%">
+  <img src="./client/src/assets/Screenshot 4.png" width="45%">
+</p>
+
 
 ### Generated LinkedIn Post
 
-_Add a screenshot showing the generated LinkedIn post here._
+<p align="center">
+  <img src="./client/src/assets/Screenshot2.png" width="45%">
+  <img src="./client/src/assets/Screenshot 3.png" width="45%">
+</p>
 
 
 ## Future Architecture
