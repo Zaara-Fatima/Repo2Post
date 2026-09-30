@@ -14,11 +14,23 @@ export const generatePost = async (repositoryId, userId) => {
   const prompt = buildPostPrompt(repository);
   const response = await generateAIResponse(prompt);
   console.log("AI RESPONSE:", response);
-  const cleanedResponse = response
-    .replace(/^```json\s*/, "")
-    .replace(/\s*```$/, "");
 
-  const parsedResponse = JSON.parse(cleanedResponse);
+  if (!response || typeof response !== "string") {
+    throw new AppError("AI service failed to generate a valid text response", 500);
+  }
+
+const cleanedResponse = response
+    .replace(/```json/gi, "")
+    .replace(/```/g, "")
+    .trim();
+
+let parsedResponse;
+  try {
+    parsedResponse = JSON.parse(cleanedResponse);
+  } catch (err) {
+    console.error("Failed to parse JSON from AI response:", cleanedResponse);
+    throw new AppError("Invalid JSON structure returned by AI", 500);
+  }
 
   const validatePost = generatedPostSchema.parse(parsedResponse);
 

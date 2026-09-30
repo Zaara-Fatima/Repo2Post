@@ -30,6 +30,7 @@ export const generateAIResponse = async (prompt) => {
       throw new AppError("AI request timed out", 504);
     }
     handleAIError(error);
+    throw error
   } finally {
     clearTimeout(timeout);
   }
