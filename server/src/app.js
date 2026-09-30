@@ -9,7 +9,7 @@ import authRoutes from "./routes/auth.routes.js"
 import userRoutes from "./routes/user.routes.js";
 import postRoutes from "./routes/post.routes.js";
 import repositoryRoutes from "./routes/repository.routes.js"
-import { apiLimiter } from "./middleware/ratelimiter.js";
+import { apiLimiter } from "./middleware/rateLimiter.js";
 
 const app = express();
 
