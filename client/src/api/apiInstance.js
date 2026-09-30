@@ -11,7 +11,7 @@ export const clearAccessToken = () => {
 };
 
 export const api = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: "https://repo2post-server.onrender.com/api",
   headers: {
     "Content-Type": "application/json",
   },
