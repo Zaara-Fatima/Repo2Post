@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { api, setAccessToken } from "../api/apiInstance";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { fetchProfileThunk } from "../store/authSlice";
 
 export const Login = () => {
   const navigate = useNavigate();
-  
+  const dispatch = useDispatch()
 
   const [formData, setFormData] = useState({
     email: "",
@@ -33,7 +35,7 @@ export const Login = () => {
       console.log("ACCESS TOKEN:", response.data.accessToken);
 
       setAccessToken(response.data.accessToken);
-      
+      await dispatch(fetchProfileThunk()).unwrap()
       navigate("/dashboard");
     } catch (error) {
       setError(error.response?.data?.message || "Login failed");
