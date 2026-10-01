@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import AppRouter from "./routes/AppRouter";
 import { useEffect } from "react";
-import { fetchProfileThunk } from "./store/authSlice";
+import { fetchProfileThunk, finishAuthCheck } from "./store/authSlice";
 import { refreshAccessToken, setAccessToken } from "./api/apiInstance";
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
         setAccessToken(token)
         dispatch(fetchProfileThunk())
       } catch (error) {
-        
+        dispatch(finishAuthCheck())
       }
     }
     intializeAuth()

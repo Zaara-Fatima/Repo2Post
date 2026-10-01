@@ -5,7 +5,7 @@ const initialState = {
   user: null,
   isAuthenticated: false,
   loading: true,
-  accessToken : null
+  accessToken: null,
 };
 
 export const fetchProfileThunk = createAsyncThunk(
@@ -22,14 +22,19 @@ export const fetchProfileThunk = createAsyncThunk(
   },
 );
 
-
 const authSlice = createSlice({
   name: "auth",
   initialState,
-  reducers: {},
+  reducers: {
+    finishAuthCheck: (state) => {
+      state.loading = false;
+    },
+  },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchProfileThunk.pending, (state) => {state.loading = true})
+      .addCase(fetchProfileThunk.pending, (state) => {
+        state.loading = true;
+      })
       .addCase(fetchProfileThunk.fulfilled, (state, action) => {
         state.isAuthenticated = true;
         state.user = action.payload;
@@ -44,4 +49,5 @@ const authSlice = createSlice({
   },
 });
 
+export const { finishAuthCheck } = authSlice.actions;
 export default authSlice.reducer;
