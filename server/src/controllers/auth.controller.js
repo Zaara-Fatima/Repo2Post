@@ -26,6 +26,7 @@ export const loginController = async (req, res, next) => {
       {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
+        path:'/',
         sameSite: "none",
         maxAge: 7 * 24 * 60 * 60 * 1000,
       }
@@ -53,6 +54,7 @@ export const refreshController = async (req,res,next) => {
     httpOnly: true,
     sameSite: "none",
     secure: process.env.NODE_ENV === "production",
+    path:'/',
     maxAge: 7* 24 *60 *60 * 1000
    })
    res.status(200).json({
@@ -73,6 +75,7 @@ export const logoutController = async(req,res,next)=>{
     httpOnly: true,
       sameSite: "none",
       secure: process.env.NODE_ENV === "production",
+      path:'/',
   })
   res.status(200).json({
     message: "Logged out successfully",
