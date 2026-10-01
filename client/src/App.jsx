@@ -11,7 +11,7 @@ function App() {
       try {
         const token = await refreshAccessToken()
         setAccessToken(token)
-        dispatch(fetchProfileThunk())
+        await dispatch(fetchProfileThunk()).unwrap();
       } catch (error) {
         dispatch(finishAuthCheck())
       }
