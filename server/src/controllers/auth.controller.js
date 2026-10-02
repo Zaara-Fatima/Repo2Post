@@ -27,7 +27,7 @@ export const loginController = async (req, res, next) => {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
         path:'/',
-        sameSite: "none",
+        sameSite: "lax",
         maxAge: 7 * 24 * 60 * 60 * 1000,
       }
     );
@@ -52,7 +52,7 @@ export const refreshController = async (req,res,next) => {
   const result = await refresh(refreshToken)
    res.cookie("refreshToken", result.refreshToken,{
     httpOnly: true,
-    sameSite: "none",
+    sameSite: "lax",
     secure: process.env.NODE_ENV === "production",
     path:'/',
     maxAge: 7* 24 *60 *60 * 1000
@@ -73,7 +73,7 @@ export const logoutController = async(req,res,next)=>{
   const result =await logout(refreshToken)
   res.clearCookie("refreshToken",{
     httpOnly: true,
-      sameSite: "none",
+      sameSite: "lax",
       secure: process.env.NODE_ENV === "production",
       path:'/',
   })
